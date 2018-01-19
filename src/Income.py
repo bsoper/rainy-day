@@ -1,5 +1,6 @@
 #!/usr/bin/python
 from Enum import TimeFrames
+from Helper import timeFrameToDays
 
 class Income:
 	Label = ''

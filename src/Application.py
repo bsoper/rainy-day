@@ -1,11 +1,13 @@
 from Expenditure import Expenditure
 from Income import Income
-import Helper
+from Enum import TimeFrames
 
 class Application:
 	expenditures = []
+	total_expenditure = 0.0
 
 	incomes = []
+	total_monthly_income = 0.0
 
 	current_savings = 0.0
 	daily_allowance = 0.0
@@ -20,23 +22,14 @@ class Application:
 		self.printExpenditures()
 		self.printIncomes()
 
+
 	def __init__(self):
 		return
 
-	def addExpenditure(self, label, amount, remaining_payments, time_frame):
-		expenditure = Expenditure(label, amount, remaining_payments, time_frame)
-		self.expenditures.append(expenditure)
+	def addExpenditure(exp):
 		return
 
-	def getTotalMonthlyExpenditure(self):
-		total_monthly_expenditure = 0.0
-		for expenditure in self.expenditures:
-			total_monthly_expenditure += expenditure.daily_expenditure * min(Helper.timeFrameToDays(TimeFrame.MONTH), 
-				Helper.daysRemaining(expenditure.remaining_payments, expenditure.time_frame))
-
-	def addIncome(self, label, amount, remaining_payments, time_frame):
-		income = Income(label, amount, remaining_payments, time_frame)
-		self.incomes.append(income)
+	def addIncome(inc):
 		return
 
 	def calculateDailyAllowance():
@@ -46,9 +39,9 @@ class Application:
 
 app = Application()
 
-app.expenditures.append(Expenditure('rent', 1000.0, 0))
-app.expenditures.append(Expenditure('car', 200.0, 700))
+app.expenditures.append(Expenditure('rent', 1000.0, 0, TimeFrames.MONTH))
+app.expenditures.append(Expenditure('car', 200.0, 700, TimeFrames.MONTH))
 
-app.incomes.append(Income('work', 3000.0, 0))
+app.incomes.append(Income('work', 3000.0, 0, TimeFrames.MONTH))
 
 app.printInformation()
