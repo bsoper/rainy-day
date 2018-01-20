@@ -46,9 +46,9 @@ class Application:
 
 app = Application()
 
-app.expenditures.append(Expenditure('rent', 1000.0, 0))
-app.expenditures.append(Expenditure('car', 200.0, 700))
+app.expenditures.append(Expenditure('rent', 1000.0, 0, TimeFrame.MONTH))
+app.expenditures.append(Expenditure('car', 200.0, 700, TimeFrame.MONTH))
 
-app.incomes.append(Income('work', 3000.0, 0))
+app.incomes.append(Income('work', 3000.0, 0, TimeFrame.MONTH))
 
 app.printInformation()
