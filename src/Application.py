@@ -35,5 +35,3 @@ class Application:
 	def calculateDailyAllowance():
 		return
 
-
-
