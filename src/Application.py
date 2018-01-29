@@ -1,6 +1,8 @@
 from Expenditure import Expenditure
+import Expenditure
 from Income import Income
 from Enum import TimeFrames
+import Messages
 
 class Application:
 	expenditures = []
@@ -42,6 +44,16 @@ class Application:
 		self.incomes.append(income)
 		return
 
-	def calculateDailyAllowance():
+	def calculateDailyAllowance(self):
 		return
 
+	def run(self):
+		while True:
+			selection = input(Messages.main_menu_message)
+			
+			if selection == 1:
+				# Call a function to get user input for expenditure values. Should return an expenditure.
+				# Add this expenditure to the list of expenditures.
+				Expenditure.expenditureFromUserInput()
+
+			break

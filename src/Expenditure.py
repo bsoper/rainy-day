@@ -18,3 +18,12 @@ class Expenditure:
 
 	def __repr__(self):
 		return '(Expenditure: ' + ', '.join([self.label, str(self.amount), str(self.remaining_payments), str(self.time_frame)]) + ')'
+
+
+def expenditureFromUserInput():
+	# label = input("What is the label?")
+	# amount = input("What is the amount?")
+	# remaining_payments
+	print "This is where we will create an expenditure from user input."
+
+
