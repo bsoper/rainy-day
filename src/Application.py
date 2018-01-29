@@ -26,10 +26,20 @@ class Application:
 	def __init__(self):
 		return
 
-	def addExpenditure(exp):
+	def addExpenditure(self, label, amount, remaining_payments, time_frame):
+		expenditure = Expenditure(label, amount, remaining_payments, time_frame)
+		self.expenditures.append(expenditure)
 		return
 
-	def addIncome(inc):
+	def getTotalMonthlyExpenditure(self):
+		total_monthly_expenditure = 0.0
+		for expenditure in self.expenditures:
+			total_monthly_expenditure += expenditure.daily_expenditure * min(Helper.timeFrameToDays(TimeFrame.MONTH), 
+				Helper.daysRemaining(expenditure.remaining_payments, expenditure.time_frame))
+
+	def addIncome(self, label, amount, remaining_payments, time_frame):
+		income = Income(label, amount, remaining_payments, time_frame)
+		self.incomes.append(income)
 		return
 
 	def calculateDailyAllowance():
